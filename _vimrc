@@ -35,9 +35,9 @@ function MyDiff()
 endfunction
 
 
-
-
-"*****Vundle Settings**************************"
+" ##################################
+" #         Vundle Mapping         #
+" ##################################
 set nocompatible              " be improved, required
 filetype off                  " required
 
@@ -52,7 +52,7 @@ set rtp+=$vim/vimfiles/bundle/Vundle.vim
 call vundle#begin('$vim/vimfiles/bundle/')
 
 " let Vundle manage Vundle, required
-Plugin 'Vundleim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -72,28 +72,26 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'garbas/vim-snipmate'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
+Plugin 'ervandew/supertab'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " *****(2)plugin from http://vim-scripts.org/vim/scripts.html: name only
 Plugin 'L9'
 Plugin 'pep8'
 
-
 " *****(3)Git plugin not hosted on GitHub
-
 
 " *****(4)git repos on your local machine (i.e. when working on your own plugin)
 
 
-
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -106,31 +104,34 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"*****Vundle Settings End***********************"
 
 
 
-"*****Additional Settings***********************"
-
-
-"set guifont=Consolas:h16:cANSI
+" ##################################
+" #           GUI Setting          #
+" ##################################
+"set guifont=Consolas:h14:cANSI
 if has('gui_running')
 	autocmd GUIEnter * set vb t_vb=
+	autocmd FileType python setlocal completeopt-=preview
+	set lines=999 columns=999
 endif
 
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
-set guifont=Courier\ New:h16
+set guifont=Courier\ New:h14
 set shiftwidth=4
 set tabstop=4	
 set autoindent
 set smartindent
 set number
-set lines=57 columns=168
 syntax enable
-set background=dark
-colorscheme solarized
-exec 'cd ' . fnameescape('E:\vim-files')
+"set background=dark
+" colorscheme solarized
+exec 'cd ' . fnameescape('E:\projects\vim-files')
 
+" ##################################
+" #         Plugin Setting         #
+" ##################################
 " for Syntastic Plugin
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -151,15 +152,16 @@ let g:tagbar_ctags_bin = 'D:\software\Vim\vimfiles\bundle\tagbar\ctags\ctags.exe
 let g:tagbar_autoclose = 0
 " For vim-markdown
 let vim_markdown_preview_hotkey='<C-m>'
+" For jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = "<Tab>"
+let g:jedi#force_py_version = 3
 
 
-
-
-
-
-" Key Mapping
+" ##################################
+" #         Key Mapping            #
+" ##################################
 " let mapleader = ','
-
 
 :imap jj <ESC>
 
@@ -170,6 +172,3 @@ let vim_markdown_preview_hotkey='<C-m>'
 
 :vmap i k
 :vmap <F9> !python<CR>
-
-
-"****Additional Settings End********************"
