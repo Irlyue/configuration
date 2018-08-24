@@ -1,3 +1,4 @@
+" Go to lines commented with --> and make changes if needed
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -45,10 +46,12 @@ set path+=**
 
 " set the runtime path to include Vundle and initialize
 " ******The vundle plugin path
+" --> path for Vundle plugin
 set rtp+=~/.vim/bundle/Vundle.vim
 " ******Using the default path to install plugins
 " call vundle#begin()                        
 " ******Or, pass a path where Vundle should install plugins
+" --> path for installing plugin
 call vundle#begin('~/.vim/bundle/')
 
 " let Vundle manage Vundle, required
@@ -127,10 +130,10 @@ set colorcolumn=120
 set autoindent
 set smartindent
 set number
-set lines=57 columns=168
 syntax enable
 set background=dark
 colorscheme solarized
+" --> startup directory
 exec 'cd ' . fnameescape('~/PycharmProjects')
 
 " for Syntastic Plugin
