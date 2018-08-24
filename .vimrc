@@ -116,6 +116,7 @@ filetype plugin indent on    " required
 "set guifont=Consolas:h16:cANSI
 if has('gui_running')
 	autocmd GUIEnter * set vb t_vb=
+	autocmd GUIEnter * simalt ~x
 endif
 
 set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
